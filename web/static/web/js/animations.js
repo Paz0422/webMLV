@@ -40,6 +40,31 @@
 
   elements.forEach((el) => observer.observe(el));
 
+  const siteHeader = document.querySelector(".site-header");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mobileLinks = document.querySelectorAll(".mobile-nav a");
+
+  if (siteHeader && menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      const open = siteHeader.classList.toggle("menu-open");
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        siteHeader.classList.remove("menu-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!siteHeader.contains(event.target)) {
+        siteHeader.classList.remove("menu-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
   const clientImage = document.getElementById("client-rotating-image");
   const clientCaption = document.getElementById("client-rotating-caption");
   const clientChips = document.querySelectorAll(".client-chip");

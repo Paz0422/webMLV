@@ -1,17 +1,16 @@
-{% load static %}
 <!doctype html>
 <html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Prominet | Soporte tecnico industrial</title>
-    <link rel="stylesheet" href="{% static 'web/css/styles.css' %}">
+    <link rel="stylesheet" href="web/static/web/css/styles.css">
 </head>
 <body>
     <header class="site-header">
         <div class="container nav-wrap" id="inicio">
             <a href="#inicio" class="brand">
-                <img src="{% static 'web/img/logo-prominet.png' %}" alt="Logo Prominet">
+                <img src="web/static/web/img/logo-prominet.png" alt="Logo Prominet">
                 <span class="brand-name">PROMINET</span>
             </a>
             <nav class="main-nav">
@@ -239,13 +238,12 @@
                 <h2>Conversemos tu proximo servicio</h2>
                 <p class="phone">+56 9 0000 0000</p>
                 <form class="contact-form" method="post" action="#">
-                    {% csrf_token %}
                     <input type="text" name="nombre" placeholder="Nombre o empresa">
                     <div class="inline-fields">
                         <input type="email" name="email" placeholder="Email">
                         <input type="text" name="telefono" placeholder="Telefono">
                     </div>
-                    <textarea name="mensaje" rows="4" placeholder="Cuéntanos tipo de equipo y necesidad"></textarea>
+                    <textarea name="mensaje" rows="4" placeholder="Cuentanos tipo de equipo y necesidad"></textarea>
                     <button type="submit" class="btn btn-primary">Solicitar contacto</button>
                 </form>
             </article>
@@ -272,6 +270,6 @@
             </article>
         </section>
     </main>
-    <script src="{% static 'web/js/animations.js' %}"></script>
+    <script src="web/static/web/js/animations.js"></script>
 </body>
 </html>
