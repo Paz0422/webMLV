@@ -101,7 +101,7 @@ body {
     border-radius: 2px;
     background: #f8fafc;
     margin: 6px 0;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: transform 0.38s ease, opacity 0.38s ease;
 }
 
 .menu-toggle:hover {
@@ -864,7 +864,7 @@ h3 {
         visibility: hidden;
         pointer-events: none;
         transform: translateY(-10px) scale(0.98);
-        transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+        transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
     }
 
     .site-header.menu-open .mobile-nav {
