@@ -54,6 +54,7 @@ body {
 .brand {
     display: inline-flex;
     align-items: center;
+    gap: 0.55rem;
     text-decoration: none;
 }
 
@@ -63,6 +64,16 @@ body {
     object-fit: contain;
     border-radius: 50%;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.brand-name {
+    color: #f8fafc;
+    font-weight: 800;
+    font-size: 1.48rem;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(2, 6, 23, 0.5);
 }
 
 .main-nav {
@@ -821,22 +832,54 @@ h3 {
         display: none;
     }
 
+    .nav-wrap {
+        position: relative;
+        justify-content: space-between;
+    }
+
+    .brand {
+        position: static;
+        transform: none;
+    }
+
+    .brand-name {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+
     .menu-toggle {
         display: block;
     }
 
-    .site-header.menu-open .mobile-nav {
+    .mobile-nav {
         display: grid;
+        position: fixed;
+        top: 92px;
+        left: 10px;
+        right: 10px;
+        z-index: 80;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-10px) scale(0.98);
+        transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+    }
+
+    .site-header.menu-open .mobile-nav {
         grid-template-columns: 1fr;
         gap: 0.55rem;
         background: linear-gradient(175deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
         border: 1px solid rgba(148, 163, 184, 0.34);
         border-radius: 14px;
         padding: 0.75rem;
-        margin-bottom: 0.8rem;
         box-shadow: 0 18px 35px rgba(2, 6, 23, 0.45);
         backdrop-filter: blur(10px);
-        animation: mobileMenuIn 0.2s ease;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
     }
 
     .site-header.menu-open .menu-toggle span:nth-child(1) {
@@ -889,11 +932,22 @@ h3 {
         width: 72px;
         height: 72px;
     }
+
+    .brand-name {
+        font-size: clamp(1.55rem, 5.2vw, 1.95rem);
+        letter-spacing: 0.06em;
+    }
 }
 
 @media (max-width: 640px) {
     .site-header .container {
         width: min(1500px, 96%);
+    }
+
+    .mobile-nav {
+        top: 82px;
+        left: 8px;
+        right: 8px;
     }
 
     .nav-wrap {
@@ -903,6 +957,11 @@ h3 {
     .brand img {
         width: 54px;
         height: 54px;
+    }
+
+    .brand-name {
+        font-size: clamp(1.35rem, 6.5vw, 1.75rem);
+        letter-spacing: 0.05em;
     }
 
     .company-title {
